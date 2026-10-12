@@ -1,0 +1,48 @@
+public class CoffeeHut {
+    public static void main(String[] args) {
+
+        // Single-dimensional array for cities
+        String[] cities = {
+            "Cape Town",
+            "Port Elizabeth",
+            "Pretoria"
+        };
+
+        // Two-dimensional array for beverage sales
+        double[][] sales = {
+            {500, 300, 125},
+            {450, 250, 100},
+            {480, 175, 120}
+        };
+
+        double grandTotal = 0;
+
+        System.out.println("NUMBER 1 COFFEE HUT REPORT");
+        System.out.println("---------------------------------------------");
+        System.out.printf("%-18s %10s %10s %10s%n",
+                "CITY", "COFFEE", "TEA", "BOBA TEA");
+
+        // Display sales and calculate city totals
+        for (int i = 0; i < cities.length; i++) {
+
+            System.out.printf("%-18s %10.2f %10.2f %10.2f%n",
+                    cities[i], sales[i][0],
+                    sales[i][1], sales[i][2]);
+
+            double cityTotal = 0;
+
+            for (int j = 0; j < sales[i].length; j++) {
+                cityTotal += sales[i][j];
+            }
+
+            System.out.printf("Total for %s: R%.2f%n",
+                    cities[i], cityTotal);
+
+            grandTotal += cityTotal;
+        }
+
+        System.out.println("---------------------------------------------");
+        System.out.printf("TOTAL SALES FOR ALL CITIES: R%.2f%n",
+                grandTotal);
+    }
+}
